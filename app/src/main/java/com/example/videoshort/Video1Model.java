@@ -8,6 +8,8 @@ public class Video1Model implements Serializable {
     private String url;
     private String userId;
     private String username;
+    private int likes;
+    private int dislikes;
 
     // Constructor
     public Video1Model() {
@@ -52,5 +54,21 @@ public class Video1Model implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public int getDislikes() {
+        return dislikes;
+    }
+
+    public void setDislikes(int dislikes) {
+        this.dislikes = dislikes;
     }
 }

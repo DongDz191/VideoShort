@@ -56,9 +56,12 @@ public class VideoShortFireBaseActivity extends AppCompatActivity {
     private void getVideos() {
         DatabaseReference mDataBase = FirebaseDatabase.getInstance().getReference("videos");
         FirebaseRecyclerOptions<Video1Model> options = new FirebaseRecyclerOptions.Builder<Video1Model>()
-                .setQuery(mDataBase, Video1Model.class).build();
+                .setQuery(mDataBase, Video1Model.class)
+                .build();
 
-        videosAdapter = new VideosFireBaseAdapter(options, this);
+        // Lấy userId của người dùng hiện tại
+        String currentUserId = mAuth.getCurrentUser().getUid();
+        videosAdapter = new VideosFireBaseAdapter(options, this, currentUserId);
         viewPager2.setOrientation(ViewPager2.ORIENTATION_VERTICAL);
         viewPager2.setAdapter(videosAdapter);
     }
